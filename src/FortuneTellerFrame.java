@@ -31,25 +31,26 @@ public class FortuneTellerFrame extends JFrame
         add(mainPnl);
 
         iconPnl = new JPanel();
-        iconPnl.setLayout(new BoxLayout(iconPnl, BoxLayout.PAGE_AXIS));
+        iconPnl.setLayout(new BoxLayout(iconPnl, BoxLayout.Y_AXIS));
+
+        iconPnl.add(Box.createVerticalGlue());
+
+
 
         iconLbl = new JLabel("Fortune Teller",SwingConstants.CENTER);
-        Font font = new Font("Arial",Font.PLAIN, 36);
+        Font font = new Font("Century",Font.PLAIN, 36);
         iconLbl.setFont(font);
+        iconLbl.setAlignmentX(Component.CENTER_ALIGNMENT);
         iconPnl.add(iconLbl);
         FTIcon = new ImageIcon("FortuneTellerIMG.jpg");
         Image FTI = FTIcon.getImage();
-        Image scaledFTI = FTI.getScaledInstance(150,150,Image.SCALE_SMOOTH);
+        Image scaledFTI = FTI.getScaledInstance(175,175,Image.SCALE_SMOOTH);
         FTIcon = new ImageIcon(scaledFTI);
         labelFTI = new JLabel(FTIcon,SwingConstants.CENTER);
+        labelFTI.setAlignmentX(Component.CENTER_ALIGNMENT);
         iconPnl.add(labelFTI);
 
         iconLbl.setVerticalAlignment(SwingConstants.NORTH);
-        iconLbl.setHorizontalTextPosition(SwingConstants.CENTER);
-        iconPnl.add(iconLbl);
-
-        labelFTI.setVerticalAlignment(SwingConstants.NORTH);
-        labelFTI.setHorizontalAlignment(SwingConstants.CENTER);
 
         displayPnl = new JPanel();
         displayPnl.setLayout(new BorderLayout());
@@ -57,7 +58,7 @@ public class FortuneTellerFrame extends JFrame
         fortuneTA = new JTextArea(10,10);
         scroller = new JScrollPane(fortuneTA);
         fortuneTA.setEditable(false);
-        fortuneTA.setFont(new Font("Open Sans",Font.PLAIN,16));
+        fortuneTA.setFont(new Font("MS Gothic",Font.PLAIN,16));
         displayPnl.add(scroller);
 
 
